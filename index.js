@@ -50,7 +50,7 @@ async function drawBanner() {
   const promiseArray = [];
   images.forEach((image) => promiseArray.push(Jimp.read(image)));
   promiseArray.push(getLatestArticleHeadline());
-  promiseArray.push(Jimp.loadFont(Jimp.FONT_SANS_32_WHITE));
+  promiseArray.push(Jimp.loadFont(Jimp.FONT_SANS_32_BLACK));
 
   Promise.all(promiseArray).then(
     ([banner, imageOne, imageTwo, imageThree, headline, font]) => {
