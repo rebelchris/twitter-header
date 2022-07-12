@@ -36,9 +36,10 @@ async function getLatestFollowers() {
 }
 
 async function getLatestArticleHeadline() {
-  let title = '';await axios.get(process.env.SITEMAP).then((data) => {
+  let title = '';
+  await axios.get(process.env.SITEMAP).then((data) => {
     parseString(data.data, function (err, data) {
-      title = data.rss.channel[0].item[0].title[0]
+      title = data.feed.entry[0].title[0]._;
     });
   });
   return title;
